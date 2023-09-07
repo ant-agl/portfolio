@@ -1,51 +1,70 @@
-var reviews = [
-  {
-    image: "1.png",
-    name: "Дмитрий Лыков",
-    text: "Очень доволен! Работа была выполнена очень быстро и раньше срока. Профессионал своего дела, как в коммуникации так и в технической настройке. Будем обязательно работать еще.",
-  },
-  {
-    image: "5.png",
-    name: "Денис Пирогов",
-    text: `Антон, спасибо за оперативную работу. Я даже не ожидал, что за 2 часа можно написать такое количество кода<br><br>
-    На мою заявку по заказу откликнулось больше 15 человек, включая вас, но 14 из 15 требовали какие-то космические суммы!!! С вами же договорились быстро и без проблем поняли друг друга. Задание выполнено в соответствии с ТЗ<br><br>
-    Однозначно будем сотрудничать и дальше, всем своим коллегам также вас уже порекомендовал за быстроту выполнения заказа и, в первую очередь, адекватность!<br><br>
-    Успехов!`,
-  },
-  {
-    image: "6.png",
-    name: "Константин Терентьев",
-    text: "Задача стояла переделать сайт, обновив дизайн. Было сделано не мало. Антон выполнял все четко по плану. Выбрал его, потому что уверен в компетентности и честности специалиста. Все очень оперативно, даёшь обширную задачу и, буквально, в течение дня все готово. Я точно могу рекомендовать этого специалиста другим",
-  },
-  {
-    image: "4.png",
-    name: "Ярослав Сухов",
-    text: "Проект выполнил раньше срока! Все правки учел, с большой ответственностью и добросовестностью выполнил задание! Будем обращаться снова. Большое спасибо!",
-  },
-  {
-    image: "2.png",
-    name: "Анна Ильинская",
-    text: "Все работы выполнены, справился со сложной задачей. Рекомендую!",
-  },
-];
+(function () {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "../data/reviews.json");
+  xhr.send();
+  xhr.onload = () => {
+    let reviews = JSON.parse(xhr.response);
 
-var reviewBlock = document.querySelector(".testimonials-list");
-reviews.forEach((review) => {
-  let item = document.createElement("li");
-  item.classList.add("testimonials-item");
-  item.innerHTML = `
-    <div class="content-card" data-testimonials-item>
-      <figure class="testimonials-avatar-box">
-        <img src="./assets/images/avatar/${review.image}" alt="${review.name}" width="60" data-testimonials-avatar>
-      </figure>
+    var reviewBlock = document.querySelector(".testimonials-list");
+    reviews.forEach((review) => {
+      let item = document.createElement("li");
+      item.classList.add("testimonials-item");
+      item.innerHTML = `
+      <div class="content-card" data-testimonials-item>
+        <figure class="testimonials-avatar-box">
+          <img src="./assets/images/avatars/${review.image}" alt="${review.name}" width="60" data-testimonials-avatar>
+        </figure>
 
-      <h4 class="h4 testimonials-item-title" data-testimonials-title>${review.name}</h4>
+        <h4 class="h4 testimonials-item-title" data-testimonials-title>${review.name}</h4>
 
-      <div class="testimonials-text" data-testimonials-text>
-        <p>${review.text}</p>
+        <div class="testimonials-text" data-testimonials-text>
+          <p>${review.text}</p>
+        </div>
       </div>
-    </div>
-  `;
+    `;
 
-  reviewBlock.append(item);
-});
+      reviewBlock.append(item);
+    });
+
+    // testimonials variables
+    const testimonialsItem = document.querySelectorAll(
+      "[data-testimonials-item]"
+    );
+    const modalContainer = document.querySelector("[data-modal-container]");
+    const modalCloseBtn = modalContainer.querySelector(
+      "[data-modal-close-btn]"
+    );
+    const overlay = modalContainer.querySelector("[data-overlay]");
+
+    // modal variable
+    const modalImg = modalContainer.querySelector("[data-modal-img]");
+    const modalTitle = modalContainer.querySelector("[data-modal-title]");
+    const modalText = modalContainer.querySelector("[data-modal-text]");
+
+    // modal toggle function
+    const testimonialsModalFunc = function () {
+      modalContainer.classList.toggle("active");
+      overlay.classList.toggle("active");
+    };
+
+    // add click event to all modal items
+    for (let i = 0; i < testimonialsItem.length; i++) {
+      testimonialsItem[i].addEventListener("click", function () {
+        modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+        modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+        modalTitle.innerHTML = this.querySelector(
+          "[data-testimonials-title]"
+        ).innerHTML;
+        modalText.innerHTML = this.querySelector(
+          "[data-testimonials-text]"
+        ).innerHTML;
+
+        testimonialsModalFunc();
+      });
+    }
+
+    // add click event to modal close button
+    modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+    overlay.addEventListener("click", testimonialsModalFunc);
+  };
+})();

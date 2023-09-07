@@ -1,0 +1,28 @@
+{
+  "Web разработка": [
+    {
+      "name": "Finance",
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis assumenda autem, tempora, voluptate quos iste quis ullam impedit eum repudiandae earum sunt quaerat voluptas veniam at. Sed, perspiciatis facere?",
+      "link": "#fin",
+      "skills": [
+        "Vue3",
+        "Sass"
+      ],
+      "countImages": 3,
+      "sort": 10
+    },
+    {
+      "name": "Test",
+      "link": "#test",
+      "sort": 10
+    }
+  ],
+  "Web дизайн": [
+    {
+      "name": "Test2",
+      "link": "#test2",
+      "sort": 10
+    }
+  ],
+  "Приложения": []
+}

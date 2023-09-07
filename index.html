@@ -15,6 +15,9 @@
   <!--
     - custom css link
   -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"> -->
+  <link rel="stylesheet" href="./assets/css/splide-sea-green.min.css">
+  <!-- <link rel="stylesheet" href="./assets/css/splide-skyblue.min.css"> -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <!--
@@ -613,23 +616,9 @@
         <section class="projects">
 
           <ul class="filter-list">
-
             <li class="filter-item">
               <button class="active" data-filter-btn>Все</button>
             </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web разработка</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web дизайн</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Приложения</button>
-            </li>
-
           </ul>
 
           <div class="filter-select-box">
@@ -645,192 +634,39 @@
             </button>
 
             <ul class="select-list">
-
               <li class="select-item">
                 <button data-select-item>Все</button>
               </li>
-
-              <li class="select-item">
-                <button data-select-item>Web разработка</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web дизайн</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Приложения</button>
-              </li>
-
             </ul>
 
           </div>
 
-          <ul class="project-list">
+          <ul class="project-list"></ul>
 
-            <li class="project-item  active" data-filter-item data-category="web разработка">
-              <a href="#">
+          <!-- modal work -->
+          <div class="modal-container modal-work" data-modal-work>
+            <div class="overlay" data-overlay></div>
+            <section class="modal-block">
+              <button class="modal-close-btn" data-modal-close-btn>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+              <div class="modal-slider splide">
+                <div class="splide__track">
+                  <ul class="splide__list" data-modal-slider></ul>
+                </div>
+              </div>
 
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                </figure>
+              <div class="modal-content">
+                <h4 class="h3 modal-title" data-modal-title></h4>
+                <p class="modal-catagory" data-modal-category></p>
 
-                <h3 class="project-title">Finance</h3>
-
-                <p class="project-category">Web разработка</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web разработка">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Orizon</h3>
-
-                <p class="project-category">Web разработка</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web дизайн">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Fundo</h3>
-
-                <p class="project-category">Web дизайн</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="приложения">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Brawlhalla</h3>
-
-                <p class="project-category">Приложения</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web дизайн">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">DSM.</h3>
-
-                <p class="project-category">Web дизайн</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web дизайн">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MetaSpark</h3>
-
-                <p class="project-category">Web дизайн</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web разработка">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Summary</h3>
-
-                <p class="project-category">Web разработка</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="приложения">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Task Manager</h3>
-
-                <p class="project-category">Приложения</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web разработка">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Arrival</h3>
-
-                <p class="project-category">Web разработка</p>
-
-              </a>
-            </li>
-
-          </ul>
+                <p class="modal-desc" data-modal-desc></p>
+                <div class="modal-skills" data-modal-skills></div>
+                <p><a href="#" target="_blank" class="modal-link" data-modal-link>Ссылка</a></p>
+              </div>
+            </section>
+          </div>
 
         </section>
 
@@ -905,7 +741,10 @@
   <!--
     - custom js link
   -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script> -->
+  <script src="./assets/js/splide.min.js"></script>
   <script src="./assets/js/reviews.js"></script>
+  <script src="./assets/js/works.js"></script>
   <script src="./assets/js/script.js"></script>
 
   <!--
